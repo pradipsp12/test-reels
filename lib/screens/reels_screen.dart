@@ -6,6 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:social/constant.dart';
 import 'package:social/screens/Components/custom_bottom_sheet.dart';
+import 'package:social/screens/Components/expanded_column.dart';
+import 'package:social/screens/Components/expanded_column_text.dart';
 import 'package:video_player/video_player.dart';
 
 class ReelsScreen extends StatefulWidget {
@@ -187,7 +189,23 @@ class _ReelsScreenState extends State<ReelsScreen> {
               SizedBox(height: 7),
               Text("4,120", style: TextStyle(color: Colors.white)),
               SizedBox(height: 25),
-              Icon(LucideIcons.messageCircle, size: 45, color: Colors.white),
+              GestureDetector(
+                onTap: (){
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: bgColor,
+                    isScrollControlled: true,
+
+                    builder: (context) => BottomsheetCustom(
+                      username: "adidastensis",
+                      commentTitle: 'Focus. Fire. Follow-through.',
+                      userProfile: AssetImage('assets/img/profile.jpg'),
+                      time: '6 hours ago',
+                      bottomSheet: ExpandedColumnText(),
+                    ),
+                  );
+                },
+                child: Icon(LucideIcons.messageCircle, size: 45, color: Colors.white)),
               SizedBox(height: 7),
               Text("120", style: TextStyle(color: Colors.white)),
               SizedBox(height: 25),
@@ -233,6 +251,7 @@ class _ReelsScreenState extends State<ReelsScreen> {
                       commentTitle: 'Focus. Fire. Follow-through.',
                       userProfile: AssetImage('assets/img/profile.jpg'),
                       time: '6 hours ago',
+                      bottomSheet: ExpandedColumn(),
                     ),
                   );
                 },

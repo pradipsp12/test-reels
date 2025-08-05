@@ -2,16 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:social/constant.dart';
-import 'package:social/screens/Components/expanded_column.dart';
 
-import 'package:social/screens/Components/expanded_column_text.dart';
 
 class BottomsheetCustom extends StatelessWidget {
-  const BottomsheetCustom({super.key, required this.username, required this.commentTitle, required this.userProfile, required this.time});
+  const BottomsheetCustom({super.key, required this.username, required this.commentTitle, required this.userProfile, required this.time, required this.bottomSheet});
   final String username;
   final String commentTitle;
   final String time;
   final ImageProvider userProfile;
+  final Widget bottomSheet;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -101,7 +100,8 @@ class BottomsheetCustom extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 7),
                           child: SingleChildScrollView(
                             controller: scrollController,
-                            child: ExpandedColumn(),
+                            child: bottomSheet,
+                            // child: ExpandedColumn(),
                             // child: ExpandedColumnText(),
                           ),
                         ),
