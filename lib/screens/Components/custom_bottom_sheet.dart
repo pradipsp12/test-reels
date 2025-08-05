@@ -147,7 +147,9 @@ class BottomsheetCustom extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                   IconButton(icon:Icon(Icons.favorite,size: 45, color: Colors.redAccent), onPressed: (){}, ),
+                   IconButton(
+                    padding: EdgeInsets.zero,
+                    icon:Icon(Icons.favorite,size: 45, color: Colors.redAccent), onPressed: (){}, ),
                   const SizedBox(height: 7),
                   const Text("4,120", style: TextStyle(color: Colors.white)),
                   const SizedBox(height: 25),
